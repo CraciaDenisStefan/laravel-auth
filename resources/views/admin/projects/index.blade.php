@@ -3,6 +3,10 @@
 @section('content')
 
 <div class="m-5">
+<div class="col-12 col-sm-6 col-md-3 my-5">
+  <a href="{{route('admin.projects.create')}}" class="btn btn-primary">Aggiungi progetto</a>
+</div>
+
     <table class="table table-dark table-striped">
         <thead>
           <tr>
@@ -19,7 +23,7 @@
             <th scope="row">{{$project->id}}</th>
             <td>{{$project->title}}</td>
             <td>{{$project->date}}</td>
-            <td>${{$project->description}}</td>
+            <td>{{$project->description}}</td>
             <td class="text-center">
               <a href="{{route('admin.projects.show', $project->id)}}"><i class="fa-solid fa-eye"></i></a>
               <a href="#"><i class="fa-solid fa-pen-to-square text-warning"></i></a>
