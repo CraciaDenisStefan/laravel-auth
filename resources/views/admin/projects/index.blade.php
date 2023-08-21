@@ -26,7 +26,7 @@
             <td>{{$project->description}}</td>
             <td class="text-center">
               <a href="{{route('admin.projects.show', $project->id)}}"><i class="fa-solid fa-eye"></i></a>
-              <a href="#"><i class="fa-solid fa-pen-to-square text-warning"></i></a>
+              <a href="{{route('admin.projects.edit', $project->id)}}"><i class="fa-solid fa-pen-to-square text-warning"></i></a>
               {{-- <form action="{{route('comics.destroy', $comic->id)}}" method="POST" onsubmit="return confirm('Sei sicuro di voler cancellare ?!?!?!?')">
                 @csrf
                 @method('DELETE')
