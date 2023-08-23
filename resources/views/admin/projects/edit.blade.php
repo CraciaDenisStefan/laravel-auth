@@ -6,7 +6,7 @@
 
 <div class="container mt-4">
  
-    <form class="text-white" action="{{route('admin.projects.update', $project->id)}}" method="POST">
+    <form class="text-white" action="{{route('admin.projects.update', $project->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="form-group m-3">
@@ -23,7 +23,16 @@
             <div class="text-danger">{{$message}}</div>
             @enderror
         </div>
-        
+        <div class="form-group m-3">
+            <div class="col-2">
+                <img class="img-fluid" src="{{ asset('storage/'.$project->cover_image) }}" >
+            </div>
+            <label class="control-label">Immagine</label>
+            <input type="file" name="cover_image" id="cover_image" class="form-control @error('cover_image')is-invalid @enderror">
+            @error('cover_image')
+            <div class="text-danger">{{$message}}</div>
+            @enderror
+        </div>
         <div class="form-group m-3">
             <label class="control-label">Descrizione</label>
             <textarea name="description" id="description" class="form-control  @error('description')is-invalid @enderror">{{old('description') ?? $project->description}}</textarea>
