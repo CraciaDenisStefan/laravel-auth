@@ -6,7 +6,7 @@
 
 <div class="container mt-4">
  
-    <form class="text-white" action="{{route('admin.projects.store')}}" method="POST">
+    <form class="text-white" action="{{route('admin.projects.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         
         <div class="form-group m-3">
@@ -23,7 +23,13 @@
             <div class="text-danger">{{$message}}</div>
             @enderror
         </div>
-        
+        <div class="form-group m-3">
+            <label class="control-label">Immagine</label>
+            <input type="file" name="cover_image" id="cover_image" class="form-control @error('cover_image')is-invalid @enderror">
+            @error('cover_image')
+            <div class="text-danger">{{$message}}</div>
+            @enderror
+        </div>
         <div class="form-group m-3">
             <label class="control-label">Descrizione</label>
             <textarea name="description" id="description" class="form-control  @error('description')is-invalid @enderror">{{old('description')}}</textarea>
