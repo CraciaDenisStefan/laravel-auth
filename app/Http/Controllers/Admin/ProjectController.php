@@ -114,7 +114,21 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        
+
+        $imagePath = $project->cover_image;
+        
+        if (Storage::disk('public')->exists($imagePath)) {
+            Storage::disk('public')->delete($imagePath);
+        }
+
+        // $imageName = $project->cover_image;
+       
+        // Storage::disk('public')->delete('project_image/' . $imageName);
+
         $project->delete();
+
+       
 
         return redirect()->route('admin.projects.index');
     }
