@@ -24,6 +24,7 @@ class ProjectSeeder extends Seeder
             $project -> title = $faker->word();
             $project -> date = $faker->date();
             $project -> description = $faker->text();
+            $project -> cover_image = $faker->imageUrl(640,480,'animals',true);
 
             $project->save();
         }
